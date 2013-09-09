@@ -27,7 +27,9 @@ function page_open (res, page, args) {
 	}))
 }
 
-var service = webserver.listen('127.0.0.1:0', function (req, res) {
+var port = phantom.args[0];
+
+var service = webserver.listen('127.0.0.1:' + port, function (req, res) {
 	// console.log("Got a request of type: " + req.method);
 	if (req.method === 'GET') {
 		res.statusCode = 200;
